@@ -25,7 +25,7 @@ boot
 [Debian Archive Release](https://cdimage.debian.org/cdimage/archive/)  
 [Debian Current Release](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/)  
 
-Download and then dd. Follow (this)[https://github.com/driverdrift/linux-docs/blob/main/downloader.md] way.
+Download and then dd. Follow [this](https://github.com/driverdrift/linux-docs/blob/main/downloader.md) way.
 
 Warning!!!
 ```
