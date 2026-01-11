@@ -20,3 +20,7 @@ linux /install.amd/vmlinuz priority=low
 initrd /install.amd/initrd.gz
 boot
 ```
+
+# Download the debian cd-rom for a online install or dvd-rom for a offline install.
+[Debian Archive Release](https://cdimage.debian.org/cdimage/archive/)  
+[Debian Current Release](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/)  
