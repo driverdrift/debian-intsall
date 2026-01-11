@@ -13,7 +13,7 @@ chainloader +1
 boot
 ```
 
-For uefi mode:
+For uefi mode (works as well in bios mode):
 ```
 set root=(hd1,gpt2)
 linux /install.amd/vmlinuz priority=low  # could press `tab` to see if path autofilled to check correction
