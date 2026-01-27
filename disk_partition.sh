@@ -1,4 +1,4 @@
-choose_install_disk() {
+disk_partition() {
 	local skip_confirm=${1:-false}
 	
 	# find rescue-os disk
