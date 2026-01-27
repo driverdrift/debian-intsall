@@ -8,15 +8,15 @@ choose_install_disk() {
 	
 	case ${#disks[@]} in
 		0)
-			echo "There is no additional disk detected to install os"
+			echo "There is no additional disk detected to install os" >&2
 			exit 1
 			;;
 		1)
 			target="/dev/${disks[0]}"
-			echo "select $target automatically"
+			echo "select $target automatically" >&2
 			;;
 		*)
-			echo "There are many disks, please select the disk you want to install os"
+			echo "There are many disks, please select the disk you want to install os" >&2
 			select d in "${disks[@]}"; do
 				[ -n "$d" ] && { target="/dev/$d"; break; }
 			done
