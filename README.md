@@ -7,5 +7,5 @@ Follow [this](./install-from-rescue.md) steps.
 
 Run the code below to install.
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-intsall/main/install.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh)
 ```
