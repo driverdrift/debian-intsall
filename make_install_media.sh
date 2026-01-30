@@ -3,7 +3,7 @@ make_install_media() {
 	_setup_hd_installer_boot
 	_setup_hd_installer_boot
 	echo umounting -R "/mnt/${1}5"
-	umount -R "/mnt/${$1}5"
+	umount -R "/mnt/${1}5"
 }
 
 _install_grub() {
