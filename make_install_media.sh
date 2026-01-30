@@ -3,13 +3,13 @@ make_install_media() {
 	_setup_hd_installer_boot
 	_setup_hd_installer_boot
 	echo umounting -R "/mnt${1}5"
-	umount -R "/mnt${1}5"
+	umount -R "$mount_path"
 }
 
 _install_grub() {
 	local target="$1"  # such as "/dev/sdc"
 	echo "target is $target"  # debug
-	local mount_path="/mnt${target}5"
+	mount_path="/mnt${target}5"
 	
 	mkdir -p "$mount_path"  # mkdir mount dictionary
 	mount "${target}5" "$mount_path"  # mount install-iso partition
