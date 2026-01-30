@@ -1,7 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This is better than `#!/bin/bash`
 
 set -euo pipefail
+# 'e' means error exit(function return or exit not zero)
+# 'u' means undefined variable exit
+# -o pipefail means an option that exit when anything fails in pipefail rather than only the last one result
 trap 'echo "operation is interrupted"; exit 130' INT
+# trap 'commands' SIGNALS
+# INT means SIGINT usually by ctrl+c
+# exit 130 always means ctrl+c 
 
 skip_confirm=false
 if [[ "${1-}" =~ ^([Yy][Ee][Ss]|[Yy])$ ]]; then
