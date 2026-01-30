@@ -21,11 +21,13 @@ apt-get update 1>/dev/null
 disk_to_install=$(disk_partition "$skip_confirm")  # = will transfer the result to variable, however if there is no `=`,it will be wrong.
 # such as `$(echo hello)` will inform that "-bash: hello: command not found"
 # but `greet=$(echo hello)` will save hello to greet, it is right.
+# use $ is for no_variable_pollute.
 echo "Disk partiton completed."
 
 echo "Start making install media."
 source ./make_install_media.sh
-no_variable_pollute=$(make_install_media "$disk_to_install")
+# no_variable_pollute=$(make_install_media "$disk_to_install")
+make_install_media "$disk_to_install"
 echo "Making install media completed."
 
 echo -e "All things completed. You can now exit the rescue mode, \n\
