@@ -30,5 +30,8 @@ source ./make_install_media.sh
 make_install_media "$disk_to_install"
 echo "Making install media completed."
 
+cd ~
+rm -rf /tmp/debian-install
+
 echo -e "All things completed. You can now exit the rescue mode, \n\
 and then poweron your original os to continue installation..."
