@@ -1,4 +1,9 @@
-install_grub() {
+make_install_media() {
+	
+	umount -R /mnt/dev/sdc5
+}
+
+_install_grub() {
 	local target="$1"  # such as "/dev/sdc"
 	echo "target is $target"  # debug
 	local mount_path="/mnt${target}5"
@@ -38,7 +43,7 @@ install_grub() {
 	echo "UEFI grub installed at: $mount_path/boot/efi/EFI/BOOT/BOOTX64.EFI"
 }
 
-setup_hd_installer_boot() {
+_setup_hd_installer_boot() {
 	apt-get install aria2 -y >/dev/null
 	
 	# don't need to dowoload "boot.img.gz" in the samd directory
@@ -52,7 +57,7 @@ setup_hd_installer_boot() {
 	
 }
 
-download_iso() {
+_download_iso() {
 	SHA_URL="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS"
 	
 	read ISO SHA <<EOF
