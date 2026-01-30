@@ -1,6 +1,9 @@
 make_install_media() {
-	
-	umount -R /mnt/dev/sdc5
+	_install_grub "$1"
+	_setup_hd_installer_boot
+	_setup_hd_installer_boot
+	echo umounting -R "/mnt/${$1}5"
+	umount -R "/mnt/${$1}5"
 }
 
 _install_grub() {
@@ -53,8 +56,6 @@ _setup_hd_installer_boot() {
 	# loop boot.img.gz is same as boot from vmlinuz&initrd.gz
 	# however, boot.img.gz is larger size.
 	aria2c -Z -x 16 -s 16 -c --min-split-size=1M -d "$mount_path/boot" https://deb.debian.org/debian/dists/stable/main/installer-amd64/current/images/hd-media/{vmlinuz,initrd.gz}
-	
-	
 }
 
 _download_iso() {
