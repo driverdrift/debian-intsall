@@ -29,6 +29,9 @@ disk_partition() {
 		[[ "$ans" =~ ^([Yy]|[Yy][Ee][Ss])$ ]] || exit 1
 	fi
 
+	source ./ensure_unmounted.sh
+	ensure_unmounted.sh "$target" >/dev/null
+	
 	(
 		echo -e "g\n					\
 			n\n\n\n+1M\nt\n4\n			\
