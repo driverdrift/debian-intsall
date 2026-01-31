@@ -2,6 +2,7 @@ make_install_media() {
 	_install_grub "$1"
 	_setup_hd_installer_boot
 	_download_iso
+	source ./grub-sample/hd-installer-grub-sample.cfg
 	echo umounting -R "$1"
 	source ./ensure_unmounted.sh
 	ensure_unmounted.sh "$1"
