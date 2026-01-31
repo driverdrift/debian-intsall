@@ -3,7 +3,7 @@ set -euo pipefail
 trap 'echo "operation is interrupted"; exit 130' INT
 
 if [ "$EUID" -ne 0 ]; then
-	echo "Run with sudo or as root."
+	echo "Run with sudo or as root. You can run the code below instead."
   	if [[ "${1-}" =~ ^([Yy][Ee][Ss]|[Yy])$ ]]; then
 		echo 'sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh) y"'
 	else
