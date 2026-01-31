@@ -7,6 +7,7 @@ if [ "$EUID" -ne 0 ]; then
 	echo
   	if [[ "${1-}" =~ ^([Yy][Ee][Ss]|[Yy])$ ]]; then
 		echo 'sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh) y"'
+		echo 'sudo bash -c \'bash <(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh) "$0"\' y'
 	else
 		echo 'sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh)"'
 	fi
