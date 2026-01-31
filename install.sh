@@ -2,6 +2,11 @@
 set -euo pipefail
 trap 'echo "operation is interrupted"; exit 130' INT
 
+if [ "$EUID" -ne 0 ]; then
+  echo "Run with sudo or as root."
+  exit 1
+fi
+
 REPO_URL="https://github.com/driverdrift/debian-install/archive/main.tar.gz"
 WORKDIR="/tmp/debian-install"
 
