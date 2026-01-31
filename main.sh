@@ -33,3 +33,5 @@ echo "Making install media completed."
 
 echo -e "All things completed. You can now exit the rescue mode, \n\
 and then poweron your original os to continue installation..."
+
+exec </dev/null >/dev/null 2>&1
