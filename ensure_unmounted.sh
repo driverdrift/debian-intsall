@@ -2,6 +2,7 @@ ensure_unmounted() {
 	local target=$1
 	local mountpoints=()
 	echo "try to umount all partitions for $target"
+	sync && partx -u $target && echo "inform system fo flush partiton table"
 	
 	# replace the old mapfile logic, because it may calls delay of kernel reading partitions
 	# lsblk in scripts may cause delay then make mistakes.
