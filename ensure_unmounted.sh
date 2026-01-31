@@ -1,5 +1,6 @@
 ensure_unmounted() {
 	local target=$1
+	local mountpoints=()
 	echo "try to umount all partitions for $target"
 	mapfile -t mountpoints < <(
 		lsblk -ln -o NAME "$target" | tail -n +2 |
@@ -9,7 +10,7 @@ ensure_unmounted() {
 		awk '{print length, $0}' | sort -rn | cut -d' ' -f2-
 	)
 
-	if [ -z "$mountpoints" ]; then
+	if (( ${#mountpoints[@]} == 0 )); then
 		return 0
 	fi
 	echo "all mountpoints: ${mountpoints[@]}"
