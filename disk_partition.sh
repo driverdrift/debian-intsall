@@ -43,6 +43,8 @@ disk_partition() {
 			w\n"
 	) | fdisk $target 1>/dev/null
 
+	sync && sleep 1
+	
 	apt-get install dosfstools -y 1>/dev/null
 
 	(
