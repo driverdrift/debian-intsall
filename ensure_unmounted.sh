@@ -2,13 +2,12 @@ ensure_unmounted() {
 	local target=$1
 	local mountpoints=()
 	echo "try to umount all partitions for $target"
-	mapfile -t mountpoints < <(
-		lsblk -ln -o NAME "$target" | tail -n +2 |
-		while read part; do
-			findmnt -rn -o TARGET --source "/dev/$part"
-		done |
-		awk '{print length, $0}' | sort -rn | cut -d' ' -f2-
-	)
+# 替换原有的 mapfile 逻辑
+mapfile -t mountpoints < <(
+    # 直接在 /proc/mounts 中查找所有以该磁盘开头的挂载点
+    # 例如 target 是 /dev/sda，它会匹配 /dev/sda1, /dev/sda2...
+    grep "^$target" /proc/mounts | awk '{print $2}' | awk '{print length, $0}' | sort -rn | cut -d' ' -f2-
+)
 
 	if (( ${#mountpoints[@]} == 0 )); then
 		return 0
