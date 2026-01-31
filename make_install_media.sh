@@ -5,6 +5,7 @@ make_install_media() {
 	echo umounting -R "$1"
 	source ./ensure_unmounted.sh
 	ensure_unmounted.sh "$1"
+	rm -rf "$mount_path"
 }
 
 _install_grub() {
