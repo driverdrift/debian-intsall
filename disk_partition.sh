@@ -43,7 +43,7 @@ disk_partition() {
 			w\n"
 	) | fdisk $target 1>/dev/null
 
-	sync && partx -u $target && echo "inform system fo flush partiton table"
+	sync && partx -u $target && echo "inform system fo flush partiton table" >&2
 	
 	apt-get install dosfstools -y 1>/dev/null
 
