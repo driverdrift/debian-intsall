@@ -2,7 +2,7 @@ Some vps companies don't permit user to mount customized iso, however people con
 
 - If the rescue-mode is provided and have access for internet, just transfer the original-os disk to an installation media. Follow [these](./install-from-rescue.md) steps.  
 If rescue-mode can't apt install packages due to outdated signature. Follow [these](https://github.com/driverdrift/linux-docs/blob/main/archieved-sources.md) steps to solve it.
-- If no rescue-mode is provided or the rescue-mode disk is small to contain netinst.iso, then use the only hard disk to install new os. See [this](./install-from-origin) ways.
+- If no rescue-mode is provided or the rescue-mode disk is small to contain netinst.iso, then use the only hard disk to install new os. See [these](./install-from-origin) ways.
 
 Run the code below to install automatically.
 ```bash
