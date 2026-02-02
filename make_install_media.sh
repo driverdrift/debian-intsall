@@ -3,10 +3,11 @@ make_install_media() {
 	_setup_hd_installer_boot
 	_download_iso
 	source ./grub-sample/hd-installer-grub-sample.cfg
+	_fix_path
 	echo umounting -R "$1"
 	source ./ensure_unmounted.sh
 	ensure_unmounted "$1"
-	rm -rf "$mount_path"
+	rm -rf "$mount_path" "$iso_mount_path"
 }
 
 _install_grub() {
@@ -108,4 +109,32 @@ EOF
 		count=$((count + 1))
 		sleep 1
 	done
+}
+
+_fix_path(){
+	iso_mount_path="/tmp/debian-install/iso_mnt"  # # Temporary mount point for the ISO
+	
+	# Create necessary directories:
+	# - $mount_path/isolinux: for splash.png
+	# - $mount_path/boot/grub/theme: for theme images (hl_*.png)
+	mkdir -p "$iso_mount_path" "$mount_path/isolinux" "$mount_path/boot/grub/theme"
+	
+	# Mount the ISO to extract files
+	mount "$mount_path/$ISO" "$iso_mount_path"
+
+	# Font file (font.pf2) is commented out
+	# Reason: local GRUB already generated a unicode font, so no need to copy
+	# If you do copy font.pf2 from the ISO, it must go to GRUB's current root (/) 
+	# because $prefix in grub.cfg points to /, otherwise loadfont will not find it
+	# grub refers:
+	# font=\$prefix/font.pf2
+	# cp "$iso_mount_path/boot/grub/font.pf2" "$mount_path"
+
+	# Reason: theme uses desktop-image: "/isolinux/splash.png"
+	# GRUB root is current partition, not ISO root, so we need this copy
+	cp "$iso_mount_path/isolinux/splash.png" "$mount_path/isolinux"
+
+	# Copy theme highlight images (hl_*.png)
+	# Reason: theme references hl_*.png for selected items
+	cp "$iso_mount_path/boot/grub/theme/hl_*.png" "$mount_path/linux/boot/grub/theme"
 }
