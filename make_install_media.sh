@@ -132,9 +132,11 @@ _fix_path(){
 
 	# Reason: theme uses desktop-image: "/isolinux/splash.png"
 	# GRUB root is current partition, not ISO root, so we need this copy
+	# Otherwise grub will inform that "error: file `/isolinux/splash.png' not found."
 	cp "$iso_mount_path/isolinux/splash.png" "$mount_path/isolinux"
 
 	# Copy theme highlight images (hl_*.png)
 	# Reason: theme references hl_*.png for selected items
+	# GRUB root is current partition, not ISO root, so we need this copy
 	cp "$iso_mount_path/boot/grub/theme/hl_*.png" "$mount_path/linux/boot/grub/theme"
 }
