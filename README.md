@@ -1,6 +1,6 @@
 Some vps companies don't permit user to mount customized iso, however people concern about the preinstalled os.
 
-- If the rescue-mode is provided and have enough disk to contain netinst.iso (debian-13.2.0 is 784mb), just transfer the rescue-mode disk to an installation media.
+- If the rescue-mode is provided and have access for internet, just transfer the original-os disk to an installation media.
 Follow [these](./install-from-rescue.md) steps.  
 Follow [these](https://github.com/driverdrift/linux-docs/blob/main/archieved-sources.md) steps if rescue-mode can't apt install due to outdated signature.
 
