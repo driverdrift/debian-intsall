@@ -138,5 +138,5 @@ _fix_path(){
 	# Copy theme highlight images (hl_*.png)
 	# Reason: theme references hl_*.png for selected items
 	# GRUB root is current partition, not ISO root, so we need this copy
-	cp $iso_mount_path/boot/grub/theme/hl_*.png "$mount_path/linux/boot/grub/theme"  # no "" for hl_*.png
+	cp $iso_mount_path/boot/grub/theme/hl_*.png "$mount_path/boot/grub/theme"  # no "" for hl_*.png
 }
