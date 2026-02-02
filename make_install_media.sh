@@ -112,7 +112,7 @@ EOF
 }
 
 _fix_path(){
-	iso_mount_path="/tmp/debian-install/iso_mnt"  # Temporary mount point for the ISO
+	iso_mount_path="$mount_path/iso_mnt"  # Temporary mount point for the ISO
 	
 	# Create necessary directories:
 	# - $mount_path/isolinux: for splash.png
