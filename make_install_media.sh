@@ -13,7 +13,7 @@ make_install_media() {
 _install_grub() {
 	local target="$1"  # such as "/dev/sdc"
 	echo "target is $target"  # debug
-	mount_path="/tmp/debian-install/mnt"
+	mount_path="/tmp/debian-install-mnt"
 	
 	mkdir -p "$mount_path"  # mkdir mount dictionary
 	mount "${target}5" "$mount_path"  # mount install-iso partition
