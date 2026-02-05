@@ -22,7 +22,7 @@ _ensure_bin() {
 	
 	[ "${#missing[@]}" -eq 0 ] && return 0
 	
-	apt-get update -y >/dev/null || exit 1
+	apt-get update >/dev/null || exit 1
 	echo "Installing missing commands: ${missing[*]}"
 	
 	for pkg in "${missing[@]}"; do
