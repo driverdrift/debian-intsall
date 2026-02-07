@@ -4,12 +4,16 @@ Some vps companies don't permit user to mount customized iso, however people con
 If rescue-mode can't apt install packages due to outdated signature. Follow [these](https://github.com/driverdrift/linux-docs/blob/main/archieved-sources.md) steps to solve it.
 - If no rescue-mode is provided or the rescue-mode disk is small to contain netinst.iso, then use the only hard disk to install new os. See [these](./install-from-origin) ways.
 
-Run the code below to install automatically.
+Run the code below to install automatically.  
+This will reimage the entire disk with Debian in rescue mode and **WIPE ALL DATA** on the disk WITHOUT any interactive confirmation.  
+The trailing "y" skips the disk format confirmation prompt.
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh) y
 
 ```
-Or run the code below to install manually.
+Or run the code below to install manually.  
+This performs the same Debian reinstallation in rescue mode, but WILL prompt you for confirmation before formatting the disk.  
+Use this if you want to review or confirm destructive actions.
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh)
 
