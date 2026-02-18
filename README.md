@@ -1,7 +1,7 @@
 Some vps companies don't permit user to mount customized iso, however people concern about the preinstalled os.
 
 - If the rescue-mode is provided and have access for internet, just transfer the rescue-os disk to an installation media.  
-The reason for using the original-os instead of running the reinstallation script on the rescue OS is that, on the rescue OS, many components are missing due to the outdated system version, which can cause the script to fail.  
+The reason for using the original-os instead of running the reinstallation script on the rescue os is that, on the rescue os, many components are missing due to the outdated system version, which can cause the script to fail.  
 First, follow [these steps](https://github.com/driverdrift/debian-install/blob/main/install-from-rescue.md) to boot from original-os in grub menu when vps in rescue-mode.
 - If no rescue-mode is provided or the rescue-mode disk is small to contain netinst.iso, then use the only hard disk to install new os. See [these](./install-from-origin.md) ways.
 
