@@ -54,3 +54,7 @@ In pe mode, distinguish disks through size
 ```
 cat /proc/partitions
 ```
+```
+swapon /dev/sdX6
+free -h
+```
