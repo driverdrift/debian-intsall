@@ -50,8 +50,11 @@ disk_partition() {
 	(
 		mkfs.vfat -F32 -I -n ESP "${target}2"  # uefi partition for new os
 		mkfs.ext4 -F -L boot "${target}3"  # boot partition for new os
+		# tune2fs -m 1 "${target}3"
 		mkfs.ext4 -F -L vg "${target}4"  # root partition for new os
+		# tune2fs -m 5 "${target}4"
 		mkfs.ext4 -F -L install-iso "${target}5"  # root partition for install-iso and /boot
+		tune2fs -m 0 "${target}5"
 		mkswap "${target}6"  # swap partition for low memory machine
 	) 1>/dev/null
 	
