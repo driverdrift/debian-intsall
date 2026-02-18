@@ -32,7 +32,7 @@ disk_partition() {
 	source ./ensure_unmounted.sh
 	ensure_unmounted "$target" >&2
 
-	wipefs -a -f "$target"
+	wipefs -a -f "$target" >/dev/null
 	# same as code below:
 	# dd if=/dev/zero of=$target bs=1M count=32
 	
