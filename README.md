@@ -1,6 +1,6 @@
 Some vps companies don't permit user to mount customized iso, however people concern about the preinstalled os.
 
-- If the rescue-mode is provided and have access for internet, just transfer the rescue-os disk to an installation media.
+- If the rescue-mode is provided and have access for internet, just transfer the rescue-os disk to an installation media.  
 (The reason for using the original OS instead of running the reinstallation script on the rescue OS is that, on the rescue OS, many components are missing due to the outdated system version, which can cause the script to fail.)
 If rescue-mode can't apt install packages due to outdated signature. Follow [these](https://github.com/driverdrift/linux-docs/blob/main/archieved-sources.md) steps to solve it.
 - If no rescue-mode is provided, then use the only hard disk to install new os. See [these](./install-from-origin.md) ways.
